@@ -43,6 +43,14 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * Get the ratings associated with the user.
+     * 
+     * This method defines a one-to-many relationship between the user model
+     * and the Rating model. A user can have many ratings, but each rating belongs to a single user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function ratings()
     {
         return $this->hasMany(rating::class);
